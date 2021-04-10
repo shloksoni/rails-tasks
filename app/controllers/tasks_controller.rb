@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   
   protect_from_forgery with: :null_session
 
-  before_action :load_task, only: [:show , :update]
+  before_action :load_task, only: [:show , :update, :destroy]
 
   def index
     tasks = Task.all
@@ -19,8 +19,6 @@ class TasksController < ApplicationController
     end
   end
 
-
-
   def show
     render status: :ok, json: { task: @task }
   end
@@ -32,7 +30,17 @@ class TasksController < ApplicationController
       render status: :unprocessable_entity, json: { errors: @task.errors.full_messages }
     end
   end
-  
+
+  def destroy
+    if @task.destroy
+      render status: :ok, json: { notice: 'Successfully deleted task.' }
+    else
+      render status: :unprocessable_entity, json: { errors:
+      @task.errors.full_messages }
+    end
+  end
+
+
   private
 
   def task_params
