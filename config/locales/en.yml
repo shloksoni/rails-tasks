@@ -31,3 +31,5 @@
 
 en:
   hello: "Hello world"
+  successfully_created: "Ticket was successfully created!"
+  

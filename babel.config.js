@@ -12,7 +12,7 @@ module.exports = function(api) {
         '"test", and "production". Instead, received: ' +
         JSON.stringify(currentEnv) +
         '.'
-    )
+    );
   }
 
   return {
@@ -46,6 +46,7 @@ module.exports = function(api) {
       ]
     ].filter(Boolean),
     plugins: [
+      'js-logger',
       'babel-plugin-macros',
       '@babel/plugin-syntax-dynamic-import',
       isTestEnv && 'babel-plugin-dynamic-import-node',
