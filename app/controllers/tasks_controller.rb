@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   
   protect_from_forgery with: :null_session
 
+  before_action :load_task, only: [:show , :update]
 
   def index
     tasks = Task.all
@@ -18,12 +19,20 @@ class TasksController < ApplicationController
     end
   end
 
-  before_action :load_task, only: [:show]
+
 
   def show
     render status: :ok, json: { task: @task }
   end
 
+  def update
+    if @task.update(task_params)
+      render status: :ok, json: { notice: 'Successfully updated task.' }
+    else
+      render status: :unprocessable_entity, json: { errors: @task.errors.full_messages }
+    end
+  end
+  
   private
 
   def task_params
