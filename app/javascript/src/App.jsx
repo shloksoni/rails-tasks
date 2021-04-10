@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+
 const App = () => {
+  useEffect(() => {
+    initializeLogger();
+    logger.info("Log from babel js-logger");
+  }, []);
+
   return (
     <Router>
       <Switch>
