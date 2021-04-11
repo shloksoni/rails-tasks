@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
    if user.present? && user.authenticate(login_params[:password])
      render status: :ok, json: { auth_token: user.authentication_token,
                                 userId: user.id,
-                                user_name : user.name} 
+                                user_name: user.name} 
                               
    else
      render status: :unauthorized, json: {
