@@ -1,7 +1,6 @@
 class TasksController < ApplicationController
   
-  protect_from_forgery with: :null_session
-
+  before_action :authenticate_user_using_x_auth_token, except: [:new, :edit]
   before_action :load_task, only: [:show , :update, :destroy]
 
   def index
@@ -12,7 +11,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      render status: :ok, json: { notice: t('successfully_created')  }
+      render status: :ok, json: { notice: t('successfully_created', entity: 'Task')  }
     else
       errors = @task.errors.full_messages
       puts errors
