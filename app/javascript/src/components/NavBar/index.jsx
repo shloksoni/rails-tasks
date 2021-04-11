@@ -1,7 +1,10 @@
 import React from "react";
 import NavItem from "./NavItem";
+import { getFromLocalStorage } from "helpers/storage";
 
 const NavBar = () => {
+  const userName = getFromLocalStorage("authUserName");
+
   return (
     <nav className="bg-white shadow">
       <div className="px-2 mx-auto max-w-7xl sm:px-4 lg:px-8">
