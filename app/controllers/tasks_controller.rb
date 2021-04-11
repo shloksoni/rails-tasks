@@ -32,9 +32,9 @@ class TasksController < ApplicationController
 
     if task_params[:authorize_owner] && is_not_owner
       render status: :forbidden, json: { error: t('authorization.denied') }
-    end
 
-    if @task.update(task_params.except(:authorize_owner))
+
+    elsif @task.update(task_params.except(:authorize_owner))
       render status: :ok, json: {}
     else
       render status: :unprocessable_entity,
