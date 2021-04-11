@@ -6,6 +6,11 @@ axios.defaults.headers = {
   "Content-Type": "application/json",
 };
 
+export const resetAuthTokens = () => {
+  delete axios.defaults.headers["X-Auth-Email"];
+  delete axios.defaults.headers["X-Auth-Token"];
+};
+
 export const setAuthHeaders = (setLoading = () => null) => {
   axios.defaults.headers = {
     Accept: "applicaion/json",
@@ -34,10 +39,6 @@ const handleSuccessResponse = response => {
 };
 
 const handleErrorResponse = error => {
-  // if (error.response?.status === 401) {
-  //   setToLocalStorage({ authToken: null, email: null, userId: null });
-  // }
-
   Toastr.error(
     error.response?.data?.error ||
       error.response?.data?.notice ||
