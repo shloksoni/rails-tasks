@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { either, isEmpty, isNil } from "ramda";
 import { ToastContainer } from "react-toastify";
-import { registerIntercepts, setAuthHeaders } from "apis/axios";
+import { registerIntercepts, setAuthHeaders } from "./apis/axios";
 import { initializeLogger } from "common/logger";
 import Dashboard from "components/Dashboard";
 import CreateTask from "components/Tasks/CreateTask";
