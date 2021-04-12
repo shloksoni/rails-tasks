@@ -1,9 +1,14 @@
 class Task < ApplicationRecord
-  belongs_to :user
+
   enum progress: { pending: 0, completed: 1 }
   enum status: { unstarred: 0, starred: 1 }
+
+  belongs_to :user
+
   has_many :comments, dependent: :destroy
+
   validates :title, presence: true, length: { maximum: 50 }
+
   
   private
 
