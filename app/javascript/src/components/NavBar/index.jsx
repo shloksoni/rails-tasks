@@ -2,7 +2,7 @@ import React from "react";
 import NavItem from "./NavItem";
 import authApi from "apis/auth";
 import Toastr from "components/Common/Toastr";
-import { resetAuthTokens } from "src/apis/axios.js";
+import { resetAuthTokens } from "../../apis/axios.js";
 import { getFromLocalStorage, setToLocalStorage } from "helpers/storage";
 
 const NavBar = () => {
