@@ -2,17 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { either, isEmpty, isNil } from "ramda";
 import { ToastContainer } from "react-toastify";
-import { registerIntercepts, setAuthHeaders } from "./apis/axios";
-import { initializeLogger } from "./common/logger.js";
-import Dashboard from "./components/Dashboard";
-import CreateTask from "./components/Tasks/CreateTask";
-import ShowTask from "./components/Tasks/ShowTask";
-import EditTask from "./components/Tasks/EditTask";
-import Login from "./components/Authentication/Login";
-import Signup from "./components/Authentication/Signup";
-import PrivateRoute from "./components/Common/PrivateRoute";
-import { getFromLocalStorage } from "./helpers/storage";
-import PageLoader from "./components/PageLoader";
+import { registerIntercepts, setAuthHeaders } from "apis/axios";
+import { initializeLogger } from "common/logger";
+import Dashboard from "components/Dashboard";
+import CreateTask from "components/Tasks/CreateTask";
+import ShowTask from "components/Tasks/ShowTask";
+import EditTask from "components/Tasks/EditTask";
+import Login from "components/Authentication/Login";
+import Signup from "components/Authentication/Signup";
+import PrivateRoute from "components/Common/PrivateRoute";
+import { getFromLocalStorage } from "helpers/storage";
+import PageLoader from "components/PageLoader";
 
 const App = () => {
   const [loading, setLoading] = useState(true);

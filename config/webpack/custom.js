@@ -6,5 +6,6 @@ module.exports = {
       common: "src/common",
       components: "src/components",
     },
+    extensions: ['', '.js', '.json', '.jsx']
   },
 };
