@@ -32,6 +32,10 @@ jobs:
       - run: bin/webpack
       - run: bundle exec rails webpacker:compile
 
+      # Audit Tests
+      - run:
+          shell: /bin/bash
+          command: bundle exec bundle-audit --update
       # Unit tests
       - run:
           shell: /bin/bash
